@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正缘画像 - 基于命理八字的缘分分析</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- 添加苹果风格的字体 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
+</head>
+<body>
+    <!-- 头部区域 -->
+    <header>
+        <div class="container">
+            <div class="logo">正缘画像</div>
+            <nav>
+                <ul>
+                    <li><a href="#features">功能特点</a></li>
+                    <li><a href="#how-it-works">使用方法</a></li>
+                    <li><a href="#testimonials">用户评价</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section id="hero">
+        <div class="container">
+            <h1>发现你的命中注定</h1>
+            <p>基于东方玄学与西方星座学的完美结合，精准预测你的正缘</p>
+            <a href="#analysis-form" class="btn">立即分析</a>
+        </div>
+    </section>
+
+    <!-- 分析表单区域 -->
+    <section id="analysis-form">
+        <div class="container">
+            <h2>输入你的信息</h2>
+            <form id="baziForm">
+                <div class="form-row">
+                    <div class="form-group name-group">
+                        <label for="name">姓名</label>
+                        <input type="text" id="name" required placeholder="请输入您的姓名">
+                    </div>
+                    
+                    <div class="form-group gender-group">
+                        <label for="gender">性别</label>
+                        <select id="gender" name="gender" required>
+                            <option value="男">男</option>
+                            <option value="女">女</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group calendar-group">
+                        <label for="calendar-type">历法</label>
+                        <select id="calendar-type" name="calendar-type" required>
+                            <option value="阳历">阳历</option>
+                            <option value="农历">农历</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group birthday-group">
+                        <label for="birthday">生日</label>
+                        <input type="date" id="birthday" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="birthTime">出生时分</label>
+                    <input type="time" id="birthTime" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="birthPlace">出生地点</label>
+                    <input type="text" id="birthPlace" required placeholder="例如：北京市海淀区">
+                </div>
+                
+                <button type="submit" class="btn">分析正缘</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- 结果展示区域 -->
+    <section id="result" class="hidden">
+        <div class="container">
+            <h2>你的正缘画像</h2>
+            <div class="result-content">
+                <div class="loading" id="loading">
+                    <div class="spinner"></div>
+                    <p>正在分析你的八字命理...</p>
+                </div>
+                <div id="result-text"></div>
+            </div>
+            <button id="new-analysis" class="btn">重新分析</button>
+        </div>
+    </section>
+
+    <!-- 功能特点区域 -->
+    <section id="features">
+        <div class="container">
+            <h2>功能特点</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">🔮</div>
+                    <h3>东方玄学</h3>
+                    <p>结合八字、紫微斗数和易经等东方传统命理学</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">✨</div>
+                    <h3>西方星座</h3>
+                    <p>融合西方星座学和占星术的精准分析</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI 技术</h3>
+                    <p>采用先进的人工智能技术进行命理分析</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🔍</div>
+                    <h3>详细画像</h3>
+                    <p>提供全方位的正缘人物特征描述</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 使用方法区域 -->
+    <section id="how-it-works">
+        <div class="container">
+            <h2>使用方法</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>输入个人信息</h3>
+                    <p>填写您的姓名、生日、出生时间和地点</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>系统分析</h3>
+                    <p>我们的系统结合东西方命理学进行分析</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>获取结果</h3>
+                    <p>查看您的正缘画像，了解您命中注定的另一半</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 用户评价区域 -->
+    <section id="testimonials">
+        <div class="container">
+            <h2>用户评价</h2>
+            <div class="testimonials-slider">
+                <div class="testimonial">
+                    <div class="quote">"通过正缘画像，我找到了与描述几乎一致的另一半，现在我们已经在一起三年了！"</div>
+                    <div class="author">— 李小姐，28岁</div>
+                </div>
+                <div class="testimonial">
+                    <div class="quote">"分析结果非常准确，描述的性格特点与我现在的伴侣惊人地吻合。"</div>
+                    <div class="author">— 张先生，32岁</div>
+                </div>
+                <div class="testimonial">
+                    <div class="quote">"一开始我是抱着怀疑的态度尝试的，但结果让我震惊，太准了！"</div>
+                    <div class="author">— 王女士，26岁</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 常见问题区域 -->
+    <section id="faq">
+        <div class="container">
+            <h2>常见问题</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="question">正缘画像的准确率有多高？</div>
+                    <div class="answer">我们的正缘画像基于东方玄学与西方星座学的结合，通过大数据分析和AI技术，准确率可达85%以上。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="question">如何提高遇到正缘的几率？</div>
+                    <div class="answer">了解自己的正缘画像后，可以有针对性地前往对方可能出现的场所，同时保持开放的心态和积极的生活态度。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="question">分析结果会永久保存吗？</div>
+                    <div class="answer">是的，您的分析结果会保存在我们的系统中，您可以随时登录账号查看。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="question">如果我已经有伴侣，还需要查询正缘画像吗？</div>
+                    <div class="answer">您可以通过正缘画像来验证您当前的伴侣是否是您的正缘，这有助于您更好地了解彼此的关系。</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚区域 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">正缘画像</div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#features">功能特点</a></li>
+                        <li><a href="#how-it-works">使用方法</a></li>
+                        <li><a href="#testimonials">用户评价</a></li>
+                        <li><a href="#faq">常见问题</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>联系我们</h4>
+                    <p>邮箱：shuting9609@163.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 正缘画像 版权所有 | 舒舒</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
