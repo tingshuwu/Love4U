@@ -81,7 +81,7 @@ async function sendMessageToDeepSeek(message) {
     try {
         console.log("正在发送API请求...");
         
-        const response = await fetch('/api/analyze', {  // 确保路径正确
+        const response = await fetch('/api/analyze', {  // 使用相对路径
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
