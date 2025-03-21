@@ -81,7 +81,7 @@ async function sendMessageToDeepSeek(message) {
     try {
         console.log("正在发送API请求...");
         
-        const response = await fetch('/api/analyze', {  // 使用相对路径
+        const response = await fetch('/api/analyze', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -94,6 +94,9 @@ async function sendMessageToDeepSeek(message) {
         console.log("API响应状态:", response.status);
         
         if (!response.ok) {
+            if (response.status === 504) {
+                throw new Error('请求超时，请稍后重试');
+            }
             throw new Error(`API请求失败: ${response.status}`);
         }
 
@@ -101,7 +104,8 @@ async function sendMessageToDeepSeek(message) {
         return data.response;
     } catch (error) {
         console.error('调用API时出错:', error);
-        return '抱歉，我无法处理您的请求。请稍后再试。错误详情: ' + error.message;
+        return '抱歉，我无法处理您的请求。' + 
+               (error.message.includes('timeout') ? '服务器响应时间过长，请稍后重试。' : error.message);
     }
 }
 

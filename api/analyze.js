@@ -14,7 +14,13 @@ module.exports = async (req, res) => {
         if (!apiKey) {
             throw new Error('API密钥未配置');
         }
-        
+
+        // 设置请求超时
+        const controller = new AbortController();
+        const timeout = setTimeout(() => {
+            controller.abort();
+        }, 30000); // 30秒超时
+
         const response = await fetch('https://api.deepseek.com/v1/chat/completions', {
             method: 'POST',
             headers: {
@@ -33,8 +39,11 @@ module.exports = async (req, res) => {
                 max_tokens: 2000,
                 top_p: 0.95,
                 frequency_penalty: 0.0
-            })
+            }),
+            signal: controller.signal
         });
+
+        clearTimeout(timeout);
         
         if (!response.ok) {
             const errorData = await response.json();
@@ -45,6 +54,10 @@ module.exports = async (req, res) => {
         res.json({ response: data.choices[0].message.content });
     } catch (error) {
         console.error('API代理错误:', error);
-        res.status(500).json({ error: error.message });
+        if (error.name === 'AbortError') {
+            res.status(504).json({ error: '请求超时，请稍后重试' });
+        } else {
+            res.status(500).json({ error: error.message });
+        }
     }
 }; 
